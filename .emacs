@@ -49,7 +49,9 @@
         nyan-mode
         json-mode
         neotree
+		jdee ;;  Java Development Environment for Emacs 
         yasnippet
+		csharp-mode
         ))
 
 (dolist (pkg my-packages)
@@ -61,7 +63,7 @@
 (nyan-mode)
 ;; ------------------------------------------	 
 ;; theme
-(load-theme 'light-blue t)
+(load-theme 'misterioso t)
 ;; ------------------------------------------	   
  ;; make sure that UTF-8 is used everywhere.
 (set-terminal-coding-system  'utf-8)
