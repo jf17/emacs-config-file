@@ -88,5 +88,8 @@
 ; закоменировать или раскоментировать по Crtl+/
 (global-unset-key (kbd "C-/"))
 (global-set-key (kbd "C-/") 'comment-or-uncomment-region)	   
-	   
-	   
+;; ------------------------------------------
+; переключаться между буферами по "Ctrl+Tab"
+(global-unset-key (kbd "<C-tab>"))
+(global-set-key (kbd "<C-tab>") 'next-buffer)		   
+;; ------------------------------------------   
