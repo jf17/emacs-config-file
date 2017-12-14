@@ -27,9 +27,11 @@
 (global-unset-key (kbd "<C-tab>"))
 (global-set-key (kbd "<C-tab>") 'next-buffer)		   
 ;; ------------------------------------------   
+;; увеличить размер текста "Ctrl+колесико мыши вверх"
 (global-unset-key (kbd "<C-wheel-up>"))
 (global-set-key (kbd "<C-wheel-up>") 'text-scale-increase)		
 ;; ------------------------------------------
+;; уменьшить размер текста "Ctrl+колесико мыши вниз"
 (global-unset-key (kbd "<C-wheel-down>"))
 (global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)		
 ;; ------------------------------------------
