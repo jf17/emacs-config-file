@@ -27,6 +27,11 @@
 (global-unset-key (kbd "<C-tab>"))
 (global-set-key (kbd "<C-tab>") 'next-buffer)		   
 ;; ------------------------------------------   
+(global-unset-key (kbd "<C-wheel-up>"))
+(global-set-key (kbd "<C-wheel-up>") 'text-scale-increase)		
+;; ------------------------------------------
+(global-unset-key (kbd "<C-wheel-down>"))
+(global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)		
 ;; ------------------------------------------
 
 ;; use more repositories for elpa
