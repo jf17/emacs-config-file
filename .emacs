@@ -2,15 +2,30 @@
 
 ;; в Windows конфиг находится C:\Users\Алексей\AppData\Roaming
 
-;; для ускорения под Виндой 
+;;C-x 2 - разделить окна по горизонтали 
+;;C-x 3 - разделить окна по вертикали
+;;C-x 1 - оставить одно окно (в котором щас нахожусь)
+;;C-x 0(ноль) - закрыть одно окно (в котором щас нахожусь)
+
+;;C-x O(буква) - перемещение между окнами
+ 
+ 
+ ;; для ускорения под Виндой 
  (setq inhibit-compacting-font-caches t)
-
+ 
 ;; key binding
-;; unset a key
+;; поиск по Crtl+F
 (global-unset-key (kbd "C-f"))
-
 (global-set-key (kbd "C-f") 'isearch-forward) ; Ctrl+F
-
+;; ------------------------------------------
+; закоменировать или раскоментировать по Crtl+/
+(global-unset-key (kbd "C-/"))
+(global-set-key (kbd "C-/") 'comment-or-uncomment-region)	   
+;; ------------------------------------------
+; переключаться между буферами по "Ctrl+Tab"
+(global-unset-key (kbd "<C-tab>"))
+(global-set-key (kbd "<C-tab>") 'next-buffer)		   
+;; ------------------------------------------   
 ;; ------------------------------------------
 
 ;; use more repositories for elpa
