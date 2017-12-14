@@ -13,6 +13,7 @@
  ;; для ускорения под Виндой 
  (setq inhibit-compacting-font-caches t)
  
+ 
 ;; key binding
 ;; поиск по Crtl+F
 (global-unset-key (kbd "C-f"))
@@ -100,11 +101,11 @@
        (file-name-sans-extension file)
        " " file))))))
 ;; ------------------------------------------
-; закоменировать или раскоментировать по Crtl+/
-(global-unset-key (kbd "C-/"))
-(global-set-key (kbd "C-/") 'comment-or-uncomment-region)	   
-;; ------------------------------------------
-; переключаться между буферами по "Ctrl+Tab"
-(global-unset-key (kbd "<C-tab>"))
-(global-set-key (kbd "<C-tab>") 'next-buffer)		   
-;; ------------------------------------------   
+;; CUA mode for CTRL+x,c,v. 
+(cua-mode t)
+    (setq cua-auto-tabify-rectangles nil) ;; Don't tabify after rectangle commands
+    (transient-mark-mode 1)               ;; No region when it is not highlighted
+    (setq cua-keep-region-after-copy t) 
+;;-----------------------------------------   
+
+
