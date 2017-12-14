@@ -106,6 +106,16 @@
     (setq cua-auto-tabify-rectangles nil) ;; Don't tabify after rectangle commands
     (transient-mark-mode 1)               ;; No region when it is not highlighted
     (setq cua-keep-region-after-copy t) 
+;;-----------------------------------------
+;; отображение имени файла в заголовке окна   
+(setq frame-title-format
+      '((:eval (if (buffer-file-name)
+                   (abbreviate-file-name (buffer-file-name))
+                 "%b"))))
 ;;-----------------------------------------   
-
-
+;; отображение номеров строк. 
+(line-number-mode   t)
+(global-linum-mode  t)
+(column-number-mode t)
+(setq linum-format " %d")
+;;-----------------------------------------   
