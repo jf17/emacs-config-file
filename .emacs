@@ -55,6 +55,11 @@
 (setq locale-coding-system   'utf-8)
 (prefer-coding-system        'utf-8)
 (set-input-method nil)
+;; ------------------------------------------
+;; formats
+(setq display-time-24hr-format t)
+(display-time-mode t)
+(size-indication-mode t)
 
 ;; ------------------------------------------
 ; start auto-complete with emacs
@@ -80,6 +85,8 @@
        (file-name-sans-extension file)
        " " file))))))
 ;; ------------------------------------------
-	   
+; закоменировать или раскоментировать по Crtl+/
+(global-unset-key (kbd "C-/"))
+(global-set-key (kbd "C-/") 'comment-or-uncomment-region)	   
 	   
 	   
