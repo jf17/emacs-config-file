@@ -11,7 +11,7 @@
  
  
  ;; для ускорения под Виндой 
- (setq inhibit-compacting-font-caches t)
+ ;;(setq inhibit-compacting-font-caches t)
  
  
 ;; key binding
@@ -56,7 +56,7 @@
         nyan-mode
         json-mode
         neotree
-		jdee ;;  Java Development Environment for Emacs 
+		;;jdee ;; (плохо работает под Mac OS X) Java Development Environment for Emacs 
         yasnippet
 		csharp-mode
         ))
