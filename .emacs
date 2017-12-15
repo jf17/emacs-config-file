@@ -65,6 +65,10 @@
   (unless (package-installed-p pkg)
     (package-install pkg)))
 ;; ------------------------------------------
+;; мои пакеты добавленные вручную
+;;(add-to-list 'load-path "~/.emacs.d/lisp/")
+;;(load "javac-mode")
+;; ------------------------------------------
 ;; Nyan Cat for Emacs! Nyanyanyanyanyanyanyanyanyan! 
 (require 'nyan-mode)
 (nyan-mode)
@@ -100,15 +104,26 @@
 
 
 ;;скрипт на компиляцию C++
- (global-set-key [(f7)] 'compile)
- (add-hook 'c++-mode-hook
-  (lambda ()
-    (unless (file-exists-p "Makefile")
-      (set (make-local-variable 'compile-command)
-    (let ((file (file-name-nondirectory buffer-file-name)))
-      (concat "g++ -g -O2 -Wall -o " 
-       (file-name-sans-extension file)
-       " " file))))))
+ (global-set-key [(f7)] 'open-mini-eshell)
+ (defun toggle-window-split() (interactive)(split-window-below)(other-window 1 nil))
+(defun open-mini-eshell ()
+  "open a mini-eshell in a small window at the bottom of the current window"
+  (interactive)
+  (split-window-below)
+  (other-window 1)
+  (eshell)
+  (insert "javac ")
+)
+ 
+ ;; (global-set-key [(f7)] 'compile)
+ ;;(add-hook 'c++-mode-hook
+ ;; (lambda ()
+  ;;  (unless (file-exists-p "Makefile")
+ ;;     (set (make-local-variable 'compile-command)
+  ;;  (let ((file (file-name-nondirectory buffer-file-name)))
+  ;;    (concat "g++ -g -O2 -Wall -o " 
+  ;;     (file-name-sans-extension file)
+;; " " file))))))
 ;; ------------------------------------------
 ;; CUA mode for CTRL+x,c,v. 
 (cua-mode t)
