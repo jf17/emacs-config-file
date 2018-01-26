@@ -51,23 +51,20 @@
 ;; авто установка пакетов 
 (setq my-packages
       '(
-        auto-complete
+        company
+        company-go
         markdown-mode
         nyan-mode
         json-mode
         neotree
 		;;jdee ;; (плохо работает под Mac OS X) Java Development Environment for Emacs 
         yasnippet
-		csharp-mode
         ))
 
 (dolist (pkg my-packages)
   (unless (package-installed-p pkg)
     (package-install pkg)))
-;; ------------------------------------------
-;; мои пакеты добавленные вручную
-;;(add-to-list 'load-path "~/.emacs.d/lisp/")
-;;(load "javac-mode")
+
 ;; ------------------------------------------
 ;; Nyan Cat for Emacs! Nyanyanyanyanyanyanyanyanyan! 
 (require 'nyan-mode)
@@ -99,22 +96,14 @@
 ; start yasnippet with emacs
 (require 'yasnippet)
 (yas-global-mode 1)
+(yas-reload-all)
+(add-hook 'go-mode-hook 'yas-minor-mode)
 
 ;; ------------------------------------------
 
 
 ;;скрипт на компиляцию C++
- (global-set-key [(f7)] 'open-mini-eshell)
- (defun toggle-window-split() (interactive)(split-window-below)(other-window 1 nil))
-(defun open-mini-eshell ()
-  "open a mini-eshell in a small window at the bottom of the current window"
-  (interactive)
-  (split-window-below)
-  (other-window 1)
-  (eshell)
-  (insert "javac ")
-)
- 
+
  ;; (global-set-key [(f7)] 'compile)
  ;;(add-hook 'c++-mode-hook
  ;; (lambda ()
@@ -131,6 +120,13 @@
     (transient-mark-mode 1)               ;; No region when it is not highlighted
     (setq cua-keep-region-after-copy t) 
 ;;-----------------------------------------
+;; для Golang
+(require 'company)
+(require 'company-go)
+(add-hook 'go-mode-hook (lambda ()
+                            (set (make-local-variable 'company-backends) '(company-go))
+                            (company-mode)))
+
 ;; отображение имени файла в заголовке окна   
 (setq frame-title-format
       '((:eval (if (buffer-file-name)
