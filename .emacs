@@ -53,6 +53,7 @@
       '(
         company
         company-go
+        flycheck
         markdown-mode
         nyan-mode
         json-mode
@@ -72,6 +73,9 @@
 ;; ------------------------------------------	 
 ;; theme
 (load-theme 'misterioso t)
+;; ------------------------------------------  
+;; init company
+(add-hook 'after-init-hook 'global-company-mode)
 ;; ------------------------------------------	   
  ;; make sure that UTF-8 is used everywhere.
 (set-terminal-coding-system  'utf-8)
@@ -89,10 +93,10 @@
 
 ;; ------------------------------------------
 ; start auto-complete with emacs
-(require 'auto-complete)
+;(require 'auto-complete)
 ; do default config for auto-complete
-(require 'auto-complete-config)
-(ac-config-default)
+;(require 'auto-complete-config)
+;(ac-config-default)
 ; start yasnippet with emacs
 (require 'yasnippet)
 (yas-global-mode 1)
