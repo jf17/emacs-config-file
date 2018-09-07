@@ -21,19 +21,19 @@
 ;; ------------------------------------------
 ; закоменировать или раскоментировать по Crtl+/
 (global-unset-key (kbd "C-/"))
-(global-set-key (kbd "C-/") 'comment-or-uncomment-region)	   
+(global-set-key (kbd "C-/") 'comment-or-uncomment-region)    
 ;; ------------------------------------------
 ; переключаться между буферами по "Ctrl+Tab"
 (global-unset-key (kbd "<C-tab>"))
-(global-set-key (kbd "<C-tab>") 'next-buffer)		   
+(global-set-key (kbd "<C-tab>") 'next-buffer)      
 ;; ------------------------------------------   
 ;; увеличить размер текста "Ctrl+колесико_мыши_вверх"
 (global-unset-key (kbd "<C-wheel-up>"))
-(global-set-key (kbd "<C-wheel-up>") 'text-scale-increase)		
+(global-set-key (kbd "<C-wheel-up>") 'text-scale-increase)    
 ;; ------------------------------------------
 ;; уменьшить размер текста "Ctrl+колесико_мыши_вниз"
 (global-unset-key (kbd "<C-wheel-down>"))
-(global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)		
+(global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)    
 ;; ------------------------------------------
 
 ;; use more repositories for elpa
@@ -51,14 +51,12 @@
 ;; авто установка пакетов 
 (setq my-packages
       '(
-        company
-        company-go
-        flycheck
+        auto-complete
         markdown-mode
         nyan-mode
         json-mode
         neotree
-		;;jdee ;; (плохо работает под Mac OS X) Java Development Environment for Emacs 
+    ;;jdee ;; (плохо работает под Mac OS X) Java Development Environment for Emacs 
         yasnippet
         ))
 
@@ -70,13 +68,10 @@
 ;; Nyan Cat for Emacs! Nyanyanyanyanyanyanyanyanyan! 
 (require 'nyan-mode)
 (nyan-mode)
-;; ------------------------------------------	 
+;; ------------------------------------------  
 ;; theme
 (load-theme 'misterioso t)
-;; ------------------------------------------  
-;; init company
-(add-hook 'after-init-hook 'global-company-mode)
-;; ------------------------------------------	   
+;; ------------------------------------------    
  ;; make sure that UTF-8 is used everywhere.
 (set-terminal-coding-system  'utf-8)
 (set-keyboard-coding-system  'utf-8)
@@ -93,10 +88,10 @@
 
 ;; ------------------------------------------
 ; start auto-complete with emacs
-;(require 'auto-complete)
+(require 'auto-complete)
 ; do default config for auto-complete
-;(require 'auto-complete-config)
-;(ac-config-default)
+(require 'auto-complete-config)
+(ac-config-default)
 ; start yasnippet with emacs
 (require 'yasnippet)
 (yas-global-mode 1)
@@ -125,11 +120,11 @@
     (setq cua-keep-region-after-copy t) 
 ;;-----------------------------------------
 ;; для Golang
-(require 'company)
-(require 'company-go)
-(add-hook 'go-mode-hook (lambda ()
-                            (set (make-local-variable 'company-backends) '(company-go))
-                            (company-mode)))
+;;(require 'company)
+;;(require 'company-go)
+;;(add-hook 'go-mode-hook (lambda ()
+ ;;                           (set (make-local-variable 'company-backends) '(company-go))
+  ;;                          (company-mode)))
 
 ;; отображение имени файла в заголовке окна   
 (setq frame-title-format
@@ -143,3 +138,4 @@
 (column-number-mode t)
 (setq linum-format " %d")
 ;;-----------------------------------------   
+
